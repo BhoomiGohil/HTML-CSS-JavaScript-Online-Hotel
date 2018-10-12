@@ -349,6 +349,7 @@ ol{
 
 .photo-box{
   width: 87%;
+  min-height: 250px;
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -361,4 +362,58 @@ ol{
   padding:3px;
   margin:5px;
   border:2px solid #E0D1AA;
+}
+
+.large-image{
+  width:100%;
+  height:100%;
+  position:fixed;
+  background-color: black;
+  top:0px;
+  left:0px;
+  opacity: 0.9;
+  display:none;
+}
+
+.large-box{
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 0px;
+  display: flex;
+  display:none;
+}
+
+.large-box-middle{
+  width: 50%;
+  height: 600px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: white;
+}
+
+.image-button{
+  width:100%;
+  height:35px;
+  padding:5px;
+}
+
+.cancle{
+  float:left;
+  width:50%;
+  text-align: left;
+}
+
+.screen{
+  float:left;
+  width:50%;
+  text-align: right;
+}
+
+.image-display{
+  width:100%;
+  height:94%;
+  padding:10px;
+  padding-top: 0px;
 }
