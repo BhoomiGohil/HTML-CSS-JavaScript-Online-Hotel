@@ -357,8 +357,8 @@ ol{
 
 .photo-image{
   float:left;
-  width:110px;
-  height:110px;
+  width: 15.3%;
+  height: 15.3%;
   padding:3px;
   margin:5px;
   border:2px solid #E0D1AA;
@@ -377,7 +377,7 @@ ol{
 
 .large-box{
   width: 100%;
-  height: 500px;
+  height:100%;
   position: absolute;
   top: 0px;
   display: flex;
@@ -416,4 +416,27 @@ ol{
   height:94%;
   padding:10px;
   padding-top: 0px;
+}
+
+.image-click-number-box{
+  width:100%;
+  height:50px;
+  display: flex;
+  justify-content: center;
+}
+
+.div-click-number{
+  width: 30px;
+  height: 30px;
+  background-color: #E0CE9F;
+  border: 1px solid #E0CE9F;
+  border-radius: 0 0 0 0;
+  margin-right: 5px;
+  font-weight: bold;
+  color: #59574D;
+}
+
+.div-click-number:active{
+  background-color: #59574D;
+  color: #E0CE9F;
 }
