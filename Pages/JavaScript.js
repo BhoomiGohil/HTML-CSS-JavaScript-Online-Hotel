@@ -1,21 +1,58 @@
-var pic = 12 , start = 1 ;
+var pic = 15, number = 12, start = 1, end = 12, repeation = pic / number;
 
-var img , div , i ;
+var main = document.querySelector(".photo-box");
 
-for(i = start ; i <= pic ; i++)
-  {
-    div = document.createElement("div");
-    div.setAttribute("class","photo-image");
-    div.setAttribute("id","img"+i);
-    div.setAttribute("style","cursor:pointer");
-    div.onclick = function() {largeimage(this.id)};
-    document.querySelector(".photo-box").appendChild(div);
+function clear(main) {
+    while (main.hasChildNodes()) {
+        main.removeChild(main.firstChild);
+    }
+}
 
-    img = document.createElement("img");
-    img.setAttribute("src", "../Images/Photo/"+ i +".JPG");
-    img.setAttribute("class" , "image");
-    document.querySelector("#img"+[i]).appendChild(img);
-  }
+function display(start , end)
+{
+    for (i = start; i <= end; i++) {
+        var div = document.createElement("div");
+        div.className = "photo-image";
+        div.setAttribute("id", "img" + [i]);
+        div.onclick = function() {largeimage(this.id)};
+        document.querySelector(".photo-box").appendChild(div);
+
+        var img = document.createElement("img");
+        img.src = "../Images/Photo/"+ i +".JPG";
+        img.setAttribute("class", "image");
+        document.querySelector("#img" + [i]).appendChild(img);
+    }
+}
+
+display(start , end);
+
+function numberButtonClick(text)
+{
+    clear(main);
+    
+    j = 1;
+
+    for(i = 1 ; i <= text ; i++)
+    {
+      start = j ;
+      j = j + 12;
+      end = number * text;
+      if(end > pic)
+      {
+        end = pic;
+      }
+    }
+
+    display(start , end);
+}
+
+for (i = 0; i <= repeation; i++) {
+    var button = document.createElement("button");
+    button.innerHTML = i + 1;
+    button.className = "div-click-number";
+    button.onclick = function () { numberButtonClick(this.innerHTML); }
+    document.querySelector(".image-click-number-box").appendChild(button);
+}
 
 function largeimage(id)
 {
