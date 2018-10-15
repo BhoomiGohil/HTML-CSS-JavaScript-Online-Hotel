@@ -14,12 +14,13 @@ function display(start , end)
         var div = document.createElement("div");
         div.className = "photo-image";
         div.setAttribute("id", "img" + [i]);
-        div.onclick = function() {largeimage(this.id)};
         document.querySelector(".photo-box").appendChild(div);
 
         var img = document.createElement("img");
+        img.value = i;
         img.src = "../Images/Photo/"+ i +".JPG";
         img.setAttribute("class", "image");
+        img.onclick = function() {largeimage(this.value)};
         document.querySelector("#img" + [i]).appendChild(img);
     }
 }
@@ -29,7 +30,7 @@ display(start , end);
 function numberButtonClick(text)
 {
     clear(main);
-    
+
     j = 1;
 
     for(i = 1 ; i <= text ; i++)
@@ -54,19 +55,16 @@ for (i = 0; i <= repeation; i++) {
     document.querySelector(".image-click-number-box").appendChild(button);
 }
 
-function largeimage(id)
+function largeimage(value)
 {
-  for(i = 1 ; i <= pic ; i++)
-  {
-    if("img"+[i] === id)
-    {
-      id = i;
-      break;
-    }
-  }
   document.getElementById("large-image").style.display = "block";
   document.getElementById("large-box").style.display = "block";
-  document.getElementById("big-image").src = "../Images/Photo/"+id+".JPG";
+  document.getElementById("big-image").src = "../Images/Photo/"+[value]+".JPG";
+}
+
+function arrow()
+{
+
 }
 
 function cancle()

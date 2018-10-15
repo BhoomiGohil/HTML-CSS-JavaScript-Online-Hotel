@@ -3,6 +3,7 @@
 <head>
   <title>Photo | Hotel Royal</title>
   <link rel="stylesheet" type="text/css" href="Css.css">
+  <link rel="shortcut icon" href="../Images/TitleLogo.png">
 </head>
 
 <body>
@@ -60,22 +61,26 @@
 
   <div class="large-image" id="large-image"></div>
   <div class="large-box" id="large-box">
+
     <div class="large-box-middle" id="large-box-middle">
       <div class="image-button">
         <div class="cancle">
           <img src="../Images/Cancle.png" style="width:25px;height:25px;" onclick="cancle()">
         </div>
         <div class="screen" id="fullscreen">
-          <img src="../Images/FullScreen.png" style="width:20px;height:20px;margin:2px;" onclick="fullscreen()">
+          <img src="../Images/FullScreen.jpg" class="small-icon" onclick="fullscreen()">
         </div>
         <div class="screen" id="smallscreen" style="display:none">
-          <img src="../Images/SmallScreen.png" style="width:20px;height:20px;margin:2px;" onclick="smallscreen()">
+          <img src="../Images/SmallScreen.jpg" class="small-icon" onclick="smallscreen()">
         </div>
       </div>
+      <div class="arrow" style="left:-10%"><img src="../Images/LeftArrow.png" class="image" value="left"></div>
+      <div class="arrow" style="left:105%;"><img src="../Images/RightArrow.png" class="image" value="right"></div>
       <div class="image-display">
         <img src="" class="image" id="big-image">
       </div>
    </div>
+
  </div>
 
 <script src="JavaScript.js"></script>

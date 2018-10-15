@@ -381,8 +381,7 @@ ol{
   height:100%;
   position: absolute;
   top: 0px;
-  display: flex;
-  display:none;
+  display: none;
 }
 
 .large-box-middle{
@@ -391,7 +390,9 @@ ol{
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
+  border-radius: 10px;
   background-color: white;
+  position: relative;
 }
 
 .image-button{
@@ -412,11 +413,21 @@ ol{
   text-align: right;
 }
 
+.small-icon{
+  width:20px;
+  height:20px;
+  margin:2px;
+}
+
 .image-display{
   width:100%;
   height:94%;
   padding:10px;
   padding-top: 0px;
+}
+
+#big-image{
+  border-radius: 10px;
 }
 
 .image-click-number-box{
@@ -440,4 +451,12 @@ ol{
 .div-click-number:active{
   background-color: #59574D;
   color: #E0CE9F;
+}
+
+.arrow{
+  float:left;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 100px;
 }
