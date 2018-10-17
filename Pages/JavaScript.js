@@ -3,11 +3,18 @@ var number = 12; // Only Display 12 images in website.
 var start = 1, end = number;
 var repeation = pic / number; // Total images divided by 12 Images.
 
-var main = document.querySelector(".photo-box"); // Take parent division for delete it firstchild.
+var photobox = document.querySelector(".photo-box"); // Take parent division for delete it firstchild.
+var imagedisplay = document.querySelector(".image-display");
 
-function clear(main) { // Clear AppendChild for display new images.
-  while (main.hasChildNodes()) {
-    main.removeChild(main.firstChild);
+function clearSmallImage(photobox) { // Clear AppendChild for display new images.
+  while (photobox.hasChildNodes()) {
+    photobox.removeChild(photobox.firstChild);
+  }
+}
+
+function clearBigImage(largeboxmiddle){
+  while(largeboxmiddle.hasChildNodes()){
+    largeboxmiddle.removeChild(largeboxmiddle.firstChild);
   }
 }
 
@@ -30,7 +37,7 @@ function display(start, end) { // Display Images in small container of page.
 display(start, end); // Display image by default.
 
 function numberButtonClick(text) { // Display image by clicking below number buttons.
-  clear(main);
+  clearSmallImage(photobox);
   j = 1;
 
   for (i = 1; i <= text; i++) {
@@ -54,6 +61,8 @@ for (i = 0; i <= repeation; i++) { // Display number buttons to handle images.
 }
 
 function largeimage(value) { // Display image in large box when you click on particular small images.
+  clearBigImage(imagedisplay);
+
   document.getElementById("large-image").style.display = "block";
   document.getElementById("large-box").style.display = "block";
 
@@ -69,35 +78,34 @@ function largeimage(value) { // Display image in large box when you click on par
 function arrow(value) // Use for image slider
 {
   var bigimage = document.querySelector("#big-image"); // To slide images
-
   if(value === "left")
   {
-    for(i = start ; i <= pic ; i++)
-    {
-      if(bigimage.value === start)
-      {
-        bigimage.value = pic;
-      }
-      if(bigimage.value === i)
-      {
-        bigimage.src = "../Images/Photo/" + [bigimage.value - 1] + ".JPG";
-      }
-    }
     bigimage.value = bigimage.value - 1;
+    if(bigimage.value === 0)
+    {
+      bigimage.value = pic;
+    }
+    imageloop(bigimage.value);
   }
   else {
-    for(i = start ; i <= pic ; i++)
-    {
-      if(bigimage.value === pic)
-      {
-        bigimage.value = 1;
-      }
-      if(bigimage.value === i)
-      {
-        bigimage.src = "../Images/Photo/" + [bigimage.value + 1] + ".JPG";
-      }
-    }
     bigimage.value = bigimage.value + 1;
+    if(bigimage.value === pic + 1)
+    {
+      bigimage.value = start;
+    }
+    imageloop(bigimage.value);
+  }
+}
+
+function imageloop(value)
+{
+  var bigimage = document.querySelector("#big-image"); // To slide images
+  for(i = start ; i <= pic ; i++)
+  {
+    if(value === i)
+    {
+      bigimage.src = "../Images/Photo/" + [value] + ".JPG";
+    }
   }
 }
 
@@ -109,13 +117,17 @@ function cancle() { // Close the big image window
 function fullscreen() { // Change the size to big of large image window.
   document.getElementById("fullscreen").style.display = "none";
   document.getElementById("smallscreen").style.display = "block";
-  document.getElementById("large-box-middle").style.width = "70%";
+  document.getElementById("image-button").style.width = "1110px";
+  document.getElementById("image-button").style.left = "15%";
+  document.getElementById("large-box-middle").style.width = "1110px";
   document.getElementById("large-box-middle").style.height = "800px";
 }
 
 function smallscreen() { // Change the size to small of large image window.
   document.getElementById("fullscreen").style.display = "block";
   document.getElementById("smallscreen").style.display = "none";
-  document.getElementById("large-box-middle").style.width = "50%";
+  document.getElementById("image-button").style.width = "795px";
+  document.getElementById("image-button").style.left = "25%";
+  document.getElementById("large-box-middle").style.width = "795px";
   document.getElementById("large-box-middle").style.height = "600px";
 }
