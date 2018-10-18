@@ -34,7 +34,10 @@ function display(start, end) { // Display Images in small container of page.
   }
 }
 
-display(start, end); // Display image by default.
+function defaultdisplay()
+{
+  display(start, end); // Display image by default.
+}
 
 function numberButtonClick(text) { // Display image by clicking below number buttons.
   clearSmallImage(photobox);
@@ -52,12 +55,15 @@ function numberButtonClick(text) { // Display image by clicking below number but
   display(start, end); // Display images by clicking number buttons.
 }
 
-for (i = 0; i <= repeation; i++) { // Display number buttons to handle images.
-  var button = document.createElement("button");
-  button.innerHTML = i + 1;
-  button.className = "div-click-number";
-  button.onclick = function () { numberButtonClick(this.innerHTML); }
-  document.querySelector(".image-click-number-box").appendChild(button);
+function numberbuttondisplay()
+{
+  for (i = 0; i <= repeation; i++) { // Display number buttons to handle images.
+    var button = document.createElement("button");
+    button.innerHTML = i + 1;
+    button.className = "div-click-number";
+    button.onclick = function () { numberButtonClick(this.innerHTML); }
+    document.querySelector(".image-click-number-box").appendChild(button);
+  }
 }
 
 function largeimage(value) { // Display image in large box when you click on particular small images.
@@ -130,4 +136,10 @@ function smallscreen() { // Change the size to small of large image window.
   document.getElementById("image-button").style.left = "25%";
   document.getElementById("large-box-middle").style.width = "795px";
   document.getElementById("large-box-middle").style.height = "600px";
+}
+
+
+function colorchange()
+{
+  document.querySelector("head-menu-links").innerHTML.style.color = "red";
 }
