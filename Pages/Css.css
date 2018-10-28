@@ -1,13 +1,16 @@
+html{
+  box-sizing: border-box;
+}
+
+* , *::after , *::before{
+    box-sizing:inherit;
+}
+
 body{
   margin : 0px;
-  padding : 0px;
   background-image:url(../Images/background.gif);
   font-family: Verdana, Geneva, sans-serif;
   font-size: 11px;
-}
-
-*{
-  box-sizing: border-box;
 }
 
 a{
